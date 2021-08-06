@@ -1,0 +1,95 @@
+.cft-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #fdbd52;
+}
+.cft-container > p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.cft-shipping {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  justify-content: flex-start;
+  height: 100%;
+  margin: 0 0 1em 0;
+}
+.cft-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+.cft-address {
+  display: flex;
+  flex-direction: column;
+}
+.cft-address > span:first-child {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #17709e;
+}
+.cft-time span:first-child {
+  font-weight: bold;
+}
+.cft-shipping p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.cft-products p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.cft-wrapper {
+  background-color: #fff;
+  display: flex;
+  width: 50%;
+  min-height: 90%;
+  border-radius: 0.5rem;
+}
+.cft-address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.cft-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.cft-input label {
+  font-weight: bold;
+  color: #17709e;
+}
+.cft-address > .cft-input input {
+  width: 45%;
+}
+.cft-input input {
+  width: 100%;
+  font-size: 1.15rem;
+  border: 2px solid #17709e;
+  border-radius: 0.25rem;
+}
+.cft-hidden {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 45%;
+}
+.cft-button {
+  background-color: #17709e;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  width: min-content;
+  align-self: flex-end;
+  cursor: pointer;
+}

@@ -11,7 +11,7 @@ const Details = () => {
   const [products, setProducts] = useState<PurchasepProducts[]>([]);
 
   const loadUsers = useCallback(() => {
-    axios.get("http://f7263ae9dd8f.ngrok.io/users/").then((result) => {
+    axios.get("http://c5c11e4aa7aa.ngrok.io/users/").then((result) => {
       let users = result.data.map((elem: any) => {
         let usr = {
           name: elem.name,
@@ -48,7 +48,19 @@ const Details = () => {
   const location = useLocation();
 
   useEffect(() => {
-    setProducts(location.state as PurchasepProducts[]);
+    let prods = [];
+    for (let dt of (location.state as any).products as any[]) {
+      prods.push({
+        qtde: dt.total,
+        product: {
+          title: dt.title,
+          category_name: dt.category_name,
+          price: dt.price,
+          photo: dt.photo,
+        },
+      });
+    }
+    setProducts(prods);
   }, []);
 
   const handleUser = useCallback(
@@ -124,28 +136,7 @@ const Details = () => {
                 address: addr,
               },
             },
-            products: [
-              {
-                qtde: 2,
-                product: {
-                  title: "Lâmina de Barbear",
-                  category_name: "Higiene Pessoal",
-                  price: 37.5,
-                  photo:
-                    "https://m.media-amazon.com/images/I/51fotZhA1-L._AC_SX425_.jpg",
-                },
-              },
-              {
-                qtde: 4,
-                product: {
-                  title: "Batata",
-                  category_name: "Raízes",
-                  price: 10.54,
-                  photo:
-                    "https://hiperideal.vteximg.com.br/arquivos/ids/167660-1000-1000/27502.jpg?v=636615816147030000",
-                },
-              },
-            ],
+            products: products,
           } as Purchase);
         })
         .catch((err) => {
@@ -168,6 +159,15 @@ const Details = () => {
               );
             })}
           </ul>
+          {products.length > 0 ? (
+            <span>
+              Total:{" "}
+              {products
+                .map((p: any) => p.product.price * p.qtde)
+                .reduce((a: number, b: number) => a + b)
+                .toFixed(2)}
+            </span>
+          ) : null}
         </div>
         <div className="cft-shipping">
           <p>Informações de Entrega:</p>

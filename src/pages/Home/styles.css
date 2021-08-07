@@ -6,6 +6,33 @@ p {
   margin: 0;
 }
 
+.carrinho {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: white;
+  padding: 0.5rem 1rem;
+}
+
+.carrinho button {
+  margin-left: 0.5rem;
+}
+
+.checkout {
+  display: flex;
+  cursor: pointer;
+  width: 90%;
+  background-color: #fdbd52;
+  margin: 0.25rem 1rem;
+  align-items: center;
+  justify-content: center;
+  height: min-content;
+}
+
+.checkout > span {
+  padding: 0;
+}
+
 .hm-container {
   display: flex;
   color: #17709e;
@@ -60,15 +87,21 @@ p {
   cursor: pointer;
 }
 
-span {
-  font-size: 20px;
-  padding: 30px 0 0 30px;
-}
-
 .productsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.ft-container span {
+  margin-right: 0.5rem;
+}
+
+.ft-container input {
+  margin-right: 0.5rem;
+}
+.ft-container select {
+  margin-right: 0.5rem;
 }
 
 .products {

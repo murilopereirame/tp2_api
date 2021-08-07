@@ -20,15 +20,26 @@ const Confirmation = () => {
       <div className="cft-wrapper">
         <div className="cft-products">
           <p>Produtos:</p>
-          <ul>
-            {purchase?.products.map((elem, index) => {
-              return (
-                <li key={elem.product.title}>
-                  {elem.qtde}x {elem.product.title}
-                </li>
-              );
-            })}
-          </ul>
+          {purchase ? (
+            <ul>
+              {purchase?.products.map((elem, index) => {
+                return (
+                  <li key={elem.product.title}>
+                    {elem.qtde}x {elem.product.title}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : null}
+          {purchase && purchase.products.length > 0 ? (
+            <span>
+              Total:{" "}
+              {purchase?.products
+                .map((p: any) => p.product.price * p.qtde)
+                .reduce((a: number, b: number) => a + b)
+                .toFixed(2)}
+            </span>
+          ) : null}
         </div>
         <div className="cft-shipping">
           <p>Informações de Entrega:</p>
